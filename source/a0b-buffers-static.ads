@@ -32,10 +32,7 @@ private
      (Self.Capacity);
 
    overriding function Length (Self : Static_Buffer) return Storage_Count is
-     ((if Self.Allocation_Length = 0
-         then Self.Actual_Length
-         else Storage_Count'Min
-                (Self.Allocation_Length, Self.Actual_Length)));
+     (Storage_Count'Min (Self.Allocation_Length, Self.Actual_Length));
 
    overriding procedure Set_Allocation_Length
      (Self : in out Static_Buffer; To : Storage_Count);

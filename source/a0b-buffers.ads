@@ -44,7 +44,7 @@ package A0B.Buffers with Pure is
 private
 
    type Abstract_Buffer is abstract tagged limited record
-      Allocation_Length : Storage_Count := 0;
+      Allocation_Length : Storage_Count := Storage_Count'Last;
       Actual_Length     : Storage_Count := 0;
    end record;
 
