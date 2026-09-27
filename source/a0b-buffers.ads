@@ -7,7 +7,7 @@
 --  Abstract buffer definitions. Children packages implements specific buffer
 --  types.
 
-with System.Storage_Elements;
+with System;
 
 package A0B.Buffers with Pure is
 
