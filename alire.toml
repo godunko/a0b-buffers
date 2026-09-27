@@ -1,5 +1,5 @@
 name = "a0b_buffers"
-version = "0.1.0-dev"
+version = "0.1.0"
 website = "https://github.com/godunko/a0b-base"
 description = "A0B: Buffers"
 long-description = """
