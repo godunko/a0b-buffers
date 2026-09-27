@@ -18,7 +18,8 @@ private
    subtype Storage_Index is Storage_Count range 1 .. Storage_Count'Last;
 
    type Storage_Unit_Array is
-     array (Storage_Index range <>) of Storage_Unit;
+     array (Storage_Index range <>) of Storage_Unit
+       with Alignment => Standard'Maximum_Alignment;
 
    type Static_Buffer (Capacity : Storage_Count) is
      new Abstract_Buffer with record
