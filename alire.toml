@@ -1,7 +1,7 @@
 name = "a0b_buffers"
 version = "0.2.0-dev"
 website = "https://github.com/godunko/a0b-buffers"
-description = "A0B: Buffers"
+description = "A0B: Data Buffers"
 long-description = """
 Provides memory-safe data buffer abstractions with customizable allocation strategies (fixed and dynamic capacity), optimized for I/O handling and serialization builders.
 """
