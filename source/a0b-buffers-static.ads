@@ -8,20 +8,21 @@ private with A0B.Types;
 
 package A0B.Buffers.Static with Pure is
 
-   type Static_Buffer (Capacity : Storage_Count) is
+   type Static_Buffer (Capacity : System.Storage_Elements.Storage_Count) is
      new A0B.Buffers.Abstract_Buffer with private;
 
 private
 
    type Storage_Unit is new A0B.Types.Unsigned_8;
 
-   subtype Storage_Index is Storage_Count range 1 .. Storage_Count'Last;
+   subtype Storage_Index is System.Storage_Elements.Storage_Count
+     range 1 .. System.Storage_Elements.Storage_Count'Last;
 
    type Storage_Unit_Array is
      array (Storage_Index range <>) of Storage_Unit
        with Alignment => Standard'Maximum_Alignment;
 
-   type Static_Buffer (Capacity : Storage_Count) is
+   type Static_Buffer (Capacity : System.Storage_Elements.Storage_Count) is
      new Abstract_Buffer with record
       Storage : Storage_Unit_Array (1 .. Capacity);
    end record;
@@ -29,16 +30,19 @@ private
    overriding function Address (Self : Static_Buffer) return System.Address is
      (Self.Storage'Address);
 
-   overriding function Capacity (Self : Static_Buffer) return Storage_Count is
-     (Self.Capacity);
+   overriding function Capacity
+     (Self : Static_Buffer) return System.Storage_Elements.Storage_Count
+   is (Self.Capacity);
 
-   overriding function Length (Self : Static_Buffer) return Storage_Count is
-     (Storage_Count'Min (Self.Allocation_Length, Self.Actual_Length));
+   overriding function Length
+     (Self : Static_Buffer) return System.Storage_Elements.Storage_Count
+   is (System.Storage_Elements.Storage_Count'Min
+         (Self.Allocation_Length, Self.Actual_Length));
 
    overriding procedure Set_Allocation_Length
-     (Self : in out Static_Buffer; To : Storage_Count);
+     (Self : in out Static_Buffer; To : System.Storage_Elements.Storage_Count);
 
    overriding procedure Set_Actual_Length
-     (Self : in out Static_Buffer; To : Storage_Count);
+     (Self : in out Static_Buffer; To : System.Storage_Elements.Storage_Count);
 
 end A0B.Buffers.Static;
