@@ -12,7 +12,7 @@ package body A0B.Buffers.Static with Pure is
 
    overriding procedure Set_Actual_Length
      (Self : in out Static_Buffer;
-      To   : System.Storage_Elements.Storage_Count) is
+      To   : A0B.Storage.Storage_Count) is
    begin
       Self.Actual_Length := To;
    end Set_Actual_Length;
@@ -23,7 +23,7 @@ package body A0B.Buffers.Static with Pure is
 
    overriding procedure Set_Allocation_Length
      (Self : in out Static_Buffer;
-      To   : System.Storage_Elements.Storage_Count) is
+      To   : A0B.Storage.Storage_Count) is
    begin
       Self.Allocation_Length := To;
    end Set_Allocation_Length;
